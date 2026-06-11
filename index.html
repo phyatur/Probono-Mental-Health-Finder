@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mental Health Finder</title>
+  <link rel="preconnect" href="https://api.fontshare.com" />
+  <link href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&f[]=zodiak@400,500,700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
+  <header class="site-header">
+    <div class="shell topbar">
+      <a href="#home" class="brand" aria-label="Mental Health Finder home">
+        <svg viewBox="0 0 72 72" aria-hidden="true">
+          <rect x="8" y="8" width="56" height="56" rx="16"></rect>
+          <path d="M22 44V28h5l9 10 9-10h5v16"></path>
+        </svg>
+        <span>
+          <strong>Mental Health Finder</strong>
+          <small>Ghana</small>
+        </span>
+      </a>
+
+      <nav aria-label="Primary">
+        <ul class="nav-list" role="list">
+          <li><a href="#directory">Directory</a></li>
+          <li><a href="#how-it-works">How it works</a></li>
+          <li><a href="#resources">Resources</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch theme">
+        <span>Theme</span>
+      </button>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <section id="home" class="hero">
+      <div class="shell hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">Pro bono mental health access</p>
+          <h1>Help people discover independent psychologists who offer accessible care.</h1>
+          <p class="lead">Mental Health Finder is designed for the Ghanaian context and focuses on independent psychologists, counsellors, and community professionals who may choose to offer pro bono or reduced-fee sessions, while also surfacing trusted Ghana mental health contacts and emergency lines.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#directory">Browse directory</a>
+            <button class="btn btn-secondary" type="button" id="open-intake">How matching works</button>
+          </div>
+          <ul class="hero-points" role="list">
+            <li>Explore by city, speciality, and session type.</li>
+            <li>See whether a psychologist offers pro bono slots or reduced fees.</li>
+            <li>Keep emergency and hospital contacts visible in the same app.</li>
+          </ul>
+        </div>
+
+        <aside class="hero-panel" aria-label="Platform summary">
+          <div class="metric-card">
+            <span class="metric-label">Listed professionals</span>
+            <strong id="metric-count">0</strong>
+          </div>
+          <div class="metric-card">
+            <span class="metric-label">Cities covered</span>
+            <strong>4</strong>
+          </div>
+          <div class="metric-card emphasis">
+            <span class="metric-label">Care focus</span>
+            <strong>Independent psychologists</strong>
+          </div>
+          <p class="panel-note">Educational prototype only. For emergencies in Ghana, call 112. For mental health support, the Mental Health Authority lists 0800678678 and info@mha.gov.gh.</p>
+        </aside>
+      </div>
+    </section>
+
+    <section id="directory" class="section section-surface">
+      <div class="shell directory-layout">
+        <div>
+          <div class="section-head">
+            <p class="eyebrow">Interactive directory</p>
+            <h2>Find a psychologist by what the person actually needs.</h2>
+            <p>Instead of a static list, this version lets users filter independent professionals by location, service style, and affordability type.</p>
+          </div>
+
+          <div class="filter-bar" role="search">
+            <label>
+              <span>City</span>
+              <select id="cityFilter">
+                <option value="all">All cities</option>
+              </select>
+            </label>
+            <label>
+              <span>Support type</span>
+              <select id="supportFilter">
+                <option value="all">All support types</option>
+                <option value="pro-bono">Pro bono</option>
+                <option value="reduced-fee">Reduced fee</option>
+              </select>
+            </label>
+            <label>
+              <span>Session mode</span>
+              <select id="modeFilter">
+                <option value="all">All modes</option>
+                <option value="in-person">In person</option>
+                <option value="virtual">Virtual</option>
+                <option value="hybrid">Hybrid</option>
+              </select>
+            </label>
+            <label class="search-wrap">
+              <span>Search speciality</span>
+              <input id="searchInput" type="text" placeholder="Anxiety, trauma, youth, couples..." />
+            </label>
+          </div>
+
+          <div class="tab-row" role="tablist" aria-label="View selector">
+            <button class="tab-btn active" type="button" role="tab" aria-selected="true" data-view="all">All professionals</button>
+            <button class="tab-btn" type="button" role="tab" aria-selected="false" data-view="pro-bono">Pro bono only</button>
+            <button class="tab-btn" type="button" role="tab" aria-selected="false" data-view="reduced-fee">Reduced fee only</button>
+          </div>
+
+          <div class="results-meta">
+            <p id="resultsSummary">Loading directory...</p>
+            <button class="text-btn" id="resetFilters" type="button">Reset filters</button>
+          </div>
+
+          <div id="cardGrid" class="card-grid" aria-live="polite"></div>
+        </div>
+
+        <aside class="side-panel">
+          <div class="info-block">
+            <p class="eyebrow">Why this feels more real</p>
+            <h3>Better demo story</h3>
+            <p>This version behaves more like a real discovery product with filtering, detail views, and clearer positioning for independent psychologists.</p>
+          </div>
+          <div class="info-block">
+            <p class="eyebrow">Care model</p>
+            <h3>Directory concept</h3>
+            <p>Professionals can indicate pro bono slots, reduced-fee consultations, online sessions, or community outreach focus. That gives your team a stronger product story during the presentation.</p>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="how-it-works" class="section">
+      <div class="shell flow-grid">
+        <div class="section-head narrow">
+          <p class="eyebrow">Product flow</p>
+          <h2>How the app works</h2>
+        </div>
+        <article class="flow-card">
+          <span>01</span>
+          <h3>User filters by city or need</h3>
+          <p>The user starts with location, affordability, or care type instead of guessing who to contact first.</p>
+        </article>
+        <article class="flow-card">
+          <span>02</span>
+          <h3>The directory narrows the list</h3>
+          <p>Cards update instantly without page reloads, which makes the app feel responsive and modern.</p>
+        </article>
+        <article class="flow-card">
+          <span>03</span>
+          <h3>User opens a psychologist profile</h3>
+          <p>The profile modal explains services, availability style, and why the listing is a fit.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="resources" class="section section-surface">
+      <div class="shell resources-layout">
+        <div class="section-head narrow">
+          <p class="eyebrow">Safety net</p>
+          <h2>Ghana mental health contacts</h2>
+          <p>These contacts make the app more useful and more credible in your capstone presentation because users can see both provider discovery and official support options.</p>
+        </div>
+        <div class="resource-stack">
+          <article class="resource-item urgent">
+            <h3>Emergency contact</h3>
+            <p><strong>112</strong> — national emergency contact in Ghana for urgent emergencies.</p>
+          </article>
+          <article class="resource-item">
+            <h3>Mental Health Authority Ghana</h3>
+            <p><strong>Phone:</strong> 0800678678<br><strong>Email:</strong> info@mha.gov.gh</p>
+            <p>The Mental Health Authority lists these contact details and oversees mental health services and hospitals in Ghana.</p>
+          </article>
+          <article class="resource-item">
+            <h3>Accra Psychiatric Hospital</h3>
+            <p><strong>Phone:</strong> +233 (0) 302-228688<br><strong>Location:</strong> Castle Road, Accra</p>
+            <p>One of the major psychiatric hospitals listed under Ghana’s Mental Health Authority.</p>
+          </article>
+          <article class="resource-item">
+            <h3>Pantang Hospital</h3>
+            <p><strong>Phone:</strong> +233 55 158 5830<br><strong>Email:</strong> secretariat@pantanghospital.gov.gh</p>
+            <p>A major psychiatric hospital in Accra with psychiatric, rehabilitation, and occupational therapy services.</p>
+          </article>
+          <article class="resource-item">
+            <h3>Ankaful Psychiatric Hospital</h3>
+            <p><strong>Agency:</strong> Mental Health Authority hospital<br><strong>Region:</strong> Central Region</p>
+            <p>Provides specialist psychiatric services and general outpatient services to the public.</p>
+          </article>
+          <article class="resource-item">
+            <h3>BasicNeeds Ghana</h3>
+            <p><a href="https://basicneedsghana.org" target="_blank" rel="noopener noreferrer">basicneedsghana.org</a></p>
+            <p>A mental health and development advocacy organization supporting access, inclusion, and community mental health work in Ghana.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section">
+      <div class="shell contact-layout">
+        <div>
+          <div class="section-head narrow">
+            <p class="eyebrow">Front-end interaction</p>
+            <h2>Contact the platform</h2>
+            <p>This form stays front-end only, but now it gives cleaner feedback and fits the presentation better.</p>
+          </div>
+          <form id="contactForm" class="contact-form">
+            <label>
+              <span>Name</span>
+              <input type="text" id="name" required />
+            </label>
+            <label>
+              <span>Email</span>
+              <input type="email" id="email" required />
+            </label>
+            <label>
+              <span>Message</span>
+              <textarea id="message" rows="5" required></textarea>
+            </label>
+            <button class="btn btn-primary" type="submit">Send message</button>
+          </form>
+          <p class="form-response" id="formResponse" role="status" aria-live="polite"></p>
+        </div>
+
+        <aside class="contact-note">
+          <h3>Capstone explanation</h3>
+          <p>This form demonstrates client-side validation and user feedback, but no data is stored because the project deliberately avoids a backend database.</p>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <dialog id="profileDialog" class="profile-dialog">
+    <div class="dialog-head">
+      <div>
+        <p class="eyebrow" id="dialogType">Psychologist</p>
+        <h2 id="dialogName">Profile</h2>
+      </div>
+      <button class="icon-btn" type="button" id="closeDialog" aria-label="Close profile">×</button>
+    </div>
+    <div class="dialog-body">
+      <p id="dialogCity"></p>
+      <p id="dialogSpecialties"></p>
+      <p id="dialogMode"></p>
+      <p id="dialogSupport"></p>
+      <p id="dialogBio"></p>
+    </div>
+  </dialog>
+</body>
+</html>
