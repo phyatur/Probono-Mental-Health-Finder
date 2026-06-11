@@ -9,7 +9,6 @@ jobs:
 deploy:
 runs-on: ubuntu-latest
 
-```
 steps:
   - name: Deploy to EC2
     uses: appleboy/ssh-action@v1.0.3
@@ -21,4 +20,3 @@ steps:
         cd /var/www/Probono-Mental-Health-Finder
         git pull origin main
         sudo systemctl restart httpd
-```
