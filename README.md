@@ -1,519 +1,602 @@
-# Pro Bono Mental Health Finder
-
-## AWS Cloud Capstone Project
-
-### Team Members
-
-| Name     | Role                   |
-| -------- | ---------------------- |
-| Fiattor | AWS IAM & Security     |
-| Jemimah | EC2 & Networking       |
-| Augustus | GitHub & CI/CD         |
-| Sarah | Documentation & Trello |
-
+# 🧠 Probono Mental Health Finder Ghana
+ 
+![AWS](https://img.shields.io/badge/AWS-Cloud-orange)
+![CloudFront](https://img.shields.io/badge/CloudFront-CDN-blue)
+![EC2](https://img.shields.io/badge/EC2-WebServer-green)
+![ALB](https://img.shields.io/badge/Application_Load_Balancer-Enabled-yellow)
+![GitHub Actions](https://img.shields.io/badge/CI%2FCD-GitHub_Actions-purple)
+![Status](https://img.shields.io/badge/Deployment-Live-success)
+ 
 ---
-
-# Project Overview
-
-## Problem Statement
-
-Mental health support can be difficult to access due to high costs and lack of awareness of available resources.
-
-The **Pro Bono Mental Health Finder** is a web application that helps users discover:
-
-* Pro bono psychologists
-* Low-cost mental health providers
-* Community support services
-* Crisis hotlines
-* Trusted mental health organizations
-
-This project demonstrates how to design, deploy, and secure a cloud-based web application using AWS Free Tier services.
-
+ 
+## 🌍 Project Overview
+ 
+Probono Mental Health Finder Ghana is a web application designed to help users discover mental health resources, services, and support options.
+ 
+This project was developed as part of the **AWS End-to-End Cloud Solution Design & Deployment Capstone Project**, where the goal was to design, secure, deploy, monitor, and automate a production-style cloud application using AWS Free Tier services.
+ 
+ 
 ---
-
-# Project Objectives
-
-This capstone project focuses on:
-
-* AWS Cloud Architecture
-* Secure Infrastructure Deployment
-* Load Balancing
-* Content Delivery Networks (CDN)
-* HTTPS Encryption
-* GitHub Version Control
-* CI/CD Automation
-* Cost Awareness and Monitoring
-
+ 
+ 
+ 
+## 🎯 Project Objectives
+ 
+The project focused on:
+ 
+✅ Building a real-world web application
+ 
+✅ Deploying infrastructure on AWS
+ 
+✅ Implementing security best practices
+ 
+✅ Configuring a Content Delivery Network (CDN)
+ 
+✅ Automating deployments using CI/CD
+ 
+✅ Monitoring application health
+ 
+✅ Managing cloud costs
+ 
 ---
-
-# Architecture Overview
-
-## Final Architecture
-
+ 
+# 🏗️ Cloud Architecture
+ 
+ 
 ```text
-User Browser
-      ↓
-CloudFront (HTTPS CDN)
-      ↓
-Application Load Balancer (ALB)
-      ↓
-EC2 Instance
-      ↓
-Static Web Application
+ 
+                    ┌────────────────────┐
+ 
+                    │       Users        │
+ 
+                    └──────────┬─────────┘
+ 
+                               │ HTTPS
+ 
+                               ▼
+ 
+                    ┌────────────────────┐
+ 
+                    │    CloudFront CDN  │
+ 
+                    └──────────┬─────────┘
+ 
+                               │ HTTPS
+ 
+                               ▼
+ 
+                    ┌────────────────────┐
+ 
+                    │ Application Load   │
+ 
+                    │     Balancer       │
+ 
+                    └──────────┬─────────┘
+ 
+                               │
+ 
+                               ▼
+ 
+                    ┌────────────────────┐
+ 
+                    │    EC2 Instance    │
+ 
+                    │ Apache Web Server  │
+ 
+                    └────────────────────┘
+ 
+ 
+ 
+ 
+ 
+Static Assets
+     │
+     ▼
+    S3
+ 
+ 
+ 
+Monitoring
+     │
+     ▼
+CloudWatch
+ 
+ 
+ 
+CI/CD
+     │
+     ▼
+GitHub Repository
+     │
+     ▼
+GitHub Actions  CI/CD
+     │
+     ▼
+SSH Deployment to EC2
 ```
-
-### Optional Static Assets
-
+ 
+ 
+---
+ 
+# Live Application
+ 
+ 
+ 
+**Production URL**
+ 
+ 
+ 
+https://www.mhfindergh.xyz
+ 
+ 
+ 
+---
+ 
+ 
+ 
+---
+ 
+# ☁️ AWS Services Used
+ 
+| Service        | Purpose                          |
+| -------------- | -------------------------------- |
+| EC2            | Hosts the application            |
+| ALB            | Load balances incoming traffic   |
+| CloudFront     | Global CDN and HTTPS entry point |
+| ACM            | SSL/TLS certificate management   |
+| S3             | Static asset storage             |
+| IAM            | Access control                   |
+| CloudWatch     | Monitoring and logging           |
+| Budgets        | Cost monitoring                  |
+| GitHub Actions | CI/CD automation                 |
+ 
+---
+ 
+# 🚀 Phase 1 — Project Setup & Environment Configuration
+ 
+### Completed Tasks
+ 
+* Created AWS Free Tier environment
+* Configured IAM users following least privilege
+* Installed and configured AWS CLI
+* Created GitHub repository
+* Configured Git branching strategy
+* Created project management board
+* Launched Amazon EC2 instance
+* Configured Security Groups
+* Created S3 bucket
+* Requested ACM SSL certificate
+* Connected custom domain
+ 
+### Skills Learned
+ 
+* AWS account management
+* IAM security principles
+* Domain and certificate management
+* Cloud networking fundamentals
+ 
+---
+ 
+# 💻 Phase 2 — Application Deployment
+ 
+### Completed Tasks
+ 
+✅ Built and deployed Mental Health Finder
+ 
+✅ Hosted application on EC2
+ 
+✅ Installed Apache HTTP Server
+ 
+✅ Configured Target Group
+ 
+✅ Configured Application Load Balancer
+ 
+✅ Implemented HTTP → HTTPS redirect
+ 
+✅ Verified ALB health checks
+ 
+✅ Uploaded source code to GitHub
+ 
+### Application Features
+ 
+* Responsive UI
+* Mental health resource discovery
+* Secure HTTPS access
+* Public cloud deployment
+ 
+---
+ 
+# 🔐 Phase 3 — Security Hardening & CloudFront Integration
+ 
+### Security Implementations
+ 
+### CloudFront CDN
+ 
+Configured CloudFront distribution with:
+ 
+* ALB as origin
+* HTTPS enforcement
+* Caching configuration
+* Custom domain support
+ 
+---
+ 
+### SSL/TLS Encryption
+ 
+Implemented:
+ 
+* ACM Certificate
+* HTTPS on ALB
+* HTTPS on custom domain
+ 
+---
+ 
+### IAM Hardening
+ 
+Applied least-privilege permissions for:
+ 
+* IAM users
+* Deployment operations
+* Administrative access
+ 
+---
+ 
+### Security Groups Review
+ 
+Reviewed and documented:
+ 
+| Port | Purpose            |
+| ---- | ------------------ |
+| 22   | SSH Administration |
+| 80   | HTTP Redirect      |
+| 443  | HTTPS Traffic      |
+ 
+---
+ 
+### CloudFront Restrictions
+ 
+Configured:
+ 
+* CloudFront behavior policies
+* HTTP → HTTPS redirection
+* Static asset caching
+ 
+---
+ 
+# ⚙️ Phase 4 — CI/CD, Monitoring & Cost Management
+ 
+## 🚀 Continuous Deployment Pipeline
+ 
+Implemented GitHub Actions workflow.
+ 
+### Deployment Process
+ 
 ```text
-S3 Bucket
-    ↓
-CloudFront
+Developer Pushes Code
+        │
+        ▼
+GitHub Repository
+        │
+        ▼
+GitHub Actions
+        │
+        ▼
+SSH Into EC2
+        │
+        ▼
+git pull origin main
+        │
+        ▼
+Restart Apache
 ```
-
+ 
+### Automated Deployment Features
+ 
+✅ Auto deployment on push
+ 
+✅ Remote EC2 updates
+ 
+✅ GitHub Actions workflows
+ 
+✅ Infrastructure automation
+ 
 ---
-
-# Technologies Used
-
-## AWS Services
-
-* Amazon EC2
-* Amazon S3
-* AWS IAM
-* AWS Certificate Manager (ACM)
-* Application Load Balancer (ALB)
-* Amazon CloudFront
-* Amazon CloudWatch
-* AWS Budgets
-
-## Development Tools
-
-* Git
-* GitHub
-* GitHub Actions
-* Trello
-* AWS CLI
-
-## Front-End Technologies
-
-* HTML5
-* CSS3
-* JavaScript
-
+ 
+## 📊 Monitoring
+ 
+### CloudWatch Alarms
+ 
+Configured alarms for:
+ 
+### EC2 CPU Utilization
+ 
+* Alarm Threshold: 80%
+ 
+### ALB 5XX Errors
+ 
+* Alarm Threshold: >5 errors
+ 
 ---
-
-# Phase 1 – Project Setup & Environment Configuration
-
-## Goal
-
-The goal of Phase 1 was to establish a secure AWS environment and prepare all tools required for development and deployment.
-
+ 
+## 📜 CloudWatch Logs
+ 
+Configured:
+ 
+* Web application logs
+* Apache logs
+* 7-day retention policy
+ 
 ---
-
-# Step 1: AWS Free Tier Account Setup
-
-## What We Did
-
-Created an AWS Free Tier account.
-
-Enabled:
-
-* Root account protection
-* Multi-Factor Authentication (MFA)
-
-## Why
-
-The AWS root account has unrestricted access to all AWS services.
-
-For security reasons:
-
-* Root account is only used for account administration.
-* Daily work is performed using IAM users.
-
-### Security Best Practice
-
-Never use the root account for development or deployment.
-
+ 
+## 💰 Cost Management
+ 
+### AWS Budgets
+ 
+Configured budget notifications to:
+ 
+* Track spending
+* Prevent unexpected charges
+* Stay within Free Tier limits
+ 
 ---
-
-# Step 2: IAM User and Permission Setup
-
-## What We Did
-
-Created individual IAM users for each team member.
-
-Example users:
-
-* Fiattor
-* Jemimah
-* Augustus
-* Sarah
-
-Assigned users to an IAM group.
-
-Enabled:
-
-* Console access
-* Password reset on first login
-* MFA
-
-## Why
-
-IAM provides:
-
-* Accountability
-* Access control
-* Least-privilege security
-
-### Security Principle
-
-Each user receives only the permissions necessary to complete assigned tasks.
-
+ 
+# 🛡️ Security Checklist
+ 
+| Security Control         | Status |
+| ------------------------ | ------ |
+| HTTPS Enabled            | ✅      |
+| ACM Certificate          | ✅      |
+| IAM Least Privilege      | ✅      |
+| Security Groups Reviewed | ✅      |
+| CloudFront Configured    | ✅      |
+| Monitoring Enabled       | ✅      |
+| Budget Alerts Enabled    | ✅      |
+| CI/CD Secured            | ✅      |
+ 
 ---
-
-# Step 3: AWS CLI Installation and Configuration
-
-## What We Did
-
-Installed AWS CLI on local machines.
-
-Verified installation:
-
-```bash
-aws --version
-```
-
-Configured AWS credentials:
-
-```bash
-aws configure --profile profileName
-```
-
-Example configuration:
-
+ 
+# 📂 Repository Structure
+ 
 ```text
-AWS Access Key ID
-AWS Secret Access Key
-Region: us-east-1
-Output Format: json
-```
-
-## Why
-
-AWS CLI allows us to interact with AWS services from the command line.
-
-Benefits:
-
-* Faster administration
-* Automation support
-* CI/CD integration
-
-### Verification
-
-```bash
-aws sts get-caller-identity --profile profileName
-```
-
----
-
-# Step 4: GitHub Repository Setup
-
-## What We Did
-
-Created GitHub repository:
-
-```text
-pro-bono-mental-health-finder
-```
-
-Created branching strategy:
-
-```text
-main
-develop
-feature/*
-```
-
-Example feature branches:
-
-```text
-feature/home-page
-feature/contact-form
-feature/resources-page
-```
-
-## Why
-
-GitHub provides:
-
-* Source control
-* Collaboration
-* Version history
-* Code review workflows
-
-### Workflow
-
-```text
-Feature Branch
-      ↓
-Pull Request
-      ↓
-Develop
-      ↓
-Main
-```
-
----
-
-# Step 5: Trello Board Setup
-
-## What We Did
-
-Created a Trello board to manage project tasks.
-
-Columns:
-
-* Backlog
-* In Progress
-* Review
-* Done
-
-## Why
-
-Trello helps the team:
-
-* Track progress
-* Assign responsibilities
-* Monitor deadlines
-* Visualize project status
-
----
-
-# Step 6: EC2 Instance Deployment
-
-## What We Did
-
-Launched an EC2 instance.
-
-Configuration:
-
-* Amazon Linux 2023
-* t2.micro
-* AWS Free Tier eligible
-
-Created a key pair:
-
-```text
-mental-health-key.pem
-```
-
-## Why
-
-EC2 acts as the web server hosting our application.
-
----
-
-# Step 7: Security Group Configuration
-
-## What We Did
-
-Created a Security Group allowing:
-
-| Protocol | Port | Source          |
-| -------- | ---- | --------------- |
-| HTTP     | 80   | Internet        |
-| HTTPS    | 443  | Internet        |
-| SSH      | 22   | Team IP Address |
-
-## Why
-
-Security Groups act as virtual firewalls.
-
-Benefits:
-
-* Restrict unauthorized access
-* Protect infrastructure
-* Reduce attack surface
-
-### Best Practice
-
-SSH should only be allowed from trusted IP addresses.
-
----
-
-# Step 8: EC2 Access and Server Preparation
-
-## What We Did
-
-Connected to EC2 using SSH.
-
-Example:
-
-```bash
-ssh -i mental-health-key.pem ec2-user@PUBLIC-IP
-```
-
-Updated packages:
-
-```bash
-sudo dnf update -y
-```
-
-Installed Git:
-
-```bash
-sudo dnf install git -y
-```
-
-## Why
-
-Preparing the server ensures it is secure and ready for deployment.
-
----
-
-# Step 9: Amazon S3 Bucket Creation
-
-## What We Did
-
-Created an S3 bucket for static assets.
-
-Examples:
-
-* Images
-* CSS
-* JavaScript files
-
-Enabled:
-
-```text
-Block Public Access = ON
-```
-
-## Why
-
-S3 provides scalable cloud storage.
-
-Benefits:
-
-* Durable storage
-* Cost-effective
-* Integrates with CloudFront
-
-### Security
-
-The bucket remains private until CloudFront access is configured.
-
----
-
-# Step 10: SSL/TLS Certificate Request
-
-## What We Did
-
-Requested a public SSL/TLS certificate through AWS Certificate Manager (ACM).
-
-Region:
-
-```text
-us-east-1
-```
-
-Used DNS validation.
-
-## Why
-
-SSL certificates allow:
-
-* HTTPS encryption
-* Secure browser connections
-* CloudFront HTTPS support
-
-### Security Benefit
-
-Protects data in transit between users and the application.
-
----
-
-# Repository Structure
-
-## Current Structure
-
-```text
-pro-bono-mental-health-finder/
+.
+├── .github/
+│   └── workflows/
+│       └── deploy.yml
 │
-├── README.md
 ├── index.html
 ├── styles.css
 ├── app.js
-└── .gitignore
+├── README.md
+│
+└── LICENSE
 ```
-
+ 
 ---
-
-# Security Practices Implemented
-
-* Root account protected with MFA
-* Individual IAM users
-* Least-privilege permissions
-* SSH restricted to trusted IP addresses
-* HTTPS planned through ACM
-* Private S3 bucket configuration
-* GitHub version control and review process
-
+ 
+# 🔄 CI/CD Workflow
+ 
+The deployment workflow automatically:
+ 
+1. Detects pushes to `main`
+2. Connects to EC2 through SSH
+3. Pulls latest code
+4. Restarts Apache
+5. Deploys updates automatically
+ 
 ---
-
-# Cost Management
-
-To remain within AWS Free Tier limits:
-
-* Use one t2.micro EC2 instance
-* Delete unused resources
-* Monitor AWS Budgets
-* Monitor CloudWatch metrics
-
+# 🛡️ Security & Compliance
+ 
+Security was a major focus throughout the project. Multiple layers of protection were implemented to secure the application and AWS infrastructure.
+ 
+### Security Measures Implemented
+ 
+✅ HTTPS encryption using AWS Certificate Manager (ACM)
+ 
+✅ SSL/TLS certificates attached to the Application Load Balancer
+ 
+✅ CloudFront configured to enforce secure HTTPS connections
+ 
+✅ Security Groups reviewed and hardened
+ 
+✅ IAM policies following the Principle of Least Privilege
+ 
+✅ Controlled administrative access through SSH key authentication
+ 
+✅ CloudFront cache and behavior policies configured
+ 
+✅ Application Load Balancer listener rules configured for HTTP → HTTPS redirection
+ 
+✅ Continuous monitoring through CloudWatch alarms and logs
+ 
 ---
-
-# Project Status
-
-✅ AWS Account Created
-✅ IAM Users Configured
-✅ AWS CLI Installed
-✅ GitHub Repository Created
-✅ Trello Board Created
-✅ EC2 Instance Launched
-✅ Security Groups Configured
-✅ S3 Bucket Created
-✅ ACM Certificate Requested
-
-🔄 Next Phase: Web Application Development & Deployment
-
+ 
+# 📋 Final Deployment Checklist
+ 
+### 🏗️ Infrastructure
+ 
+* [x] EC2 Instance Provisioned
+* [x] Apache HTTP Server Installed
+* [x] Mental Health Finder Application Deployed
+* [x] Target Group Configured
+* [x] Application Load Balancer Configured
+* [x] Domain Connected
+ 
+### 🔒 HTTPS & Certificates
+ 
+* [x] ACM Certificate Requested
+* [x] ACM Certificate Validated
+* [x] HTTPS Listener Configured
+* [x] HTTP → HTTPS Redirection Enabled
+ 
+### 🌐 Content Delivery Network
+ 
+* [x] CloudFront Distribution Created
+* [x] Custom Domain Attached
+* [x] CloudFront Behaviors Configured
+* [x] Static Asset Caching Enabled
+ 
+### 🛡️ Security
+ 
+* [x] Security Groups Audited
+* [x] IAM Permissions Reviewed
+* [x] Least Privilege Principles Applied
+* [x] Open Ports Documented
+ 
+### 🚀 DevOps & Automation
+ 
+* [x] GitHub Repository Configured
+* [x] GitHub Actions Workflow Created
+* [x] SSH Deployment Automation Configured
+* [x] Automatic Deployments Tested Successfully
+ 
+### 📊 Monitoring & Observability
+ 
+* [x] CloudWatch CPU Alarm Configured
+* [x] CloudWatch ALB 5XX Alarm Configured
+* [x] CloudWatch Logs Enabled
+* [x] 7-Day Log Retention Configured
+ 
+### 💰 Cost Management
+ 
+* [x] AWS Budget Created
+* [x] Budget Alerts Configured
+* [x] Free Tier Usage Monitored
+ 
 ---
-
-# Learning Outcomes
-
-Through this project we will gain practical experience with:
-
-* AWS Cloud Architecture
-* IAM Security
-* EC2 Administration
-* S3 Storage
-* CloudFront CDN
-* Application Load Balancers
-* SSL/TLS Certificates
-* GitHub Workflows
-* CI/CD Automation
-* Cloud Monitoring
-
+ 
+# 🚧 Challenges Faced
+ 
+Building a production-style cloud environment introduced several real-world challenges that required troubleshooting and iterative improvements.
+ 
+ 
+ 
+### 🔹 CloudFront Redirect Loops
+ 
+Resolved by:
+ 
+* Reviewing origin protocol policies
+* Fixing redirect configuration
+ 
+### 🔹 SSL Certificate Issues
+ 
+Resolved by:
+ 
+* Correct ACM region selection
+* Proper certificate attachment
+ 
+### 🔹 Apache Configuration Errors
+ 
+Resolved through:
+ 
+* Config validation
+* DocumentRoot corrections
+ 
+### 🔹 GitHub Actions Failures
+ 
+Resolved through:
+ 
+* YAML syntax fixes
+* SSH key configuration
+* Apache service troubleshooting
+ 
+ 
 ---
-
-# References
-
-### AWS Documentation
-
-https://docs.aws.amazon.com
-
-### GitHub Documentation
-
-https://docs.github.com
-
-### Trello Documentation
-
-https://trello.com/guide
+ 
+# 🚀 Future Enhancements
+ 
+Although the project meets all capstone requirements, several improvements could further enhance scalability, security, and reliability.
+ 
+### Infrastructure
+ 
+* Multi-AZ deployment for high availability
+* Auto Scaling Group implementation
+* Route 53 DNS management
+ 
+### Security
+ 
+* AWS WAF integration
+* Advanced CloudFront origin protection
+* Automated security auditing
+ 
+### DevOps
+ 
+* Infrastructure as Code (Terraform)
+* Blue/Green deployment strategy
+* Automated rollback capability
+ 
+### Monitoring
+ 
+* Custom CloudWatch Dashboards
+* Centralized application monitoring
+* Enhanced alerting and notification workflows
+ 
+### Application
+ 
+* Database integration
+* User authentication and authorization
+* Enhanced search and resource management features
+ 
+---
+ 
+# 👥 Contributors
+ 
+### Project Team
+ 
+🧑‍💻 Jemimah Ninson
+ 
+☁️ Edmund Fiattor
+ 
+⚙️ Augustus Aidoo
+ 
+🔐 Sarah Mensah
+ 
+---
+ 
+# 📄 License
+ 
+This project is licensed under the **GNU General Public License v3.0**.
+ 
+Feel free to use, modify, and distribute this project in accordance with the license terms.
+ 
+---
+ 
+ 
+# 📚 Key Lessons Learned
+ 
+* Designing cloud infrastructure
+* Implementing layered security
+* Configuring HTTPS correctly
+* Using CloudFront with ALB
+* Automating deployments
+* Monitoring production workloads
+* Managing AWS costs
+ 
+---
+ 
+# 🎉 Project Outcome
+ 
+Successfully designed and deployed a secure cloud-hosted application using:
+ 
+✅ CloudFront
+ 
+✅ Application Load Balancer
+ 
+✅ EC2
+ 
+✅ S3
+ 
+✅ IAM
+ 
+✅ ACM
+ 
+✅ CloudWatch
+ 
+✅ GitHub Actions
+ 
+✅ AWS Budgets
+ 
+This project demonstrates real-world cloud architecture, security hardening, CI/CD automation, monitoring, and operational best practices using AWS Free Tier services.
+ 
+ 
+ 
+ 
