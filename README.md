@@ -89,30 +89,40 @@ The project focused on:
  
  
  
-Static Assets
-     │
-     ▼
-    S3
- 
- 
- 
-Monitoring
-     │
-     ▼
-CloudWatch
- 
- 
- 
-CI/CD
-     │
-     ▼
-GitHub Repository
-     │
-     ▼
-GitHub Actions  CI/CD
-     │
-     ▼
-SSH Deployment to EC2
+                        Static Assets
+                             │
+                             ▼
+                            S3
+                         
+                         
+                         
+                        Monitoring
+                             │
+                             ▼
+                        CloudWatch
+                         
+                         
+                         
+                        CI/CD
+                             │
+                             ▼
+                        GitHub Repository
+                             │
+                             ▼
+                        GitHub Actions  CI/CD
+                             │
+                             ▼
+                        SSH Deployment to EC2
+
+
+
+
+
+
+
+
+
+
 ```
  
  
